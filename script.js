@@ -1,23 +1,36 @@
+const inputs = document.querySelectorAll("input");
+
 function getTodayEndTime() {
   const now = new Date();
 
-  const end = new Date(
+  return new Date(
     now.getFullYear(),
     now.getMonth(),
-    now.getDate(), // today's date
-    18, // 6 PM
+    now.getDate(),
+    22, // 10 PM
     0,
     0,
   );
-
-  return end;
 }
 
-const inputs = document.querySelectorAll("input");
+// Format date like: 2 April 2026, 10:00 PM
+function formatDate(date) {
+  return date.toLocaleString("en-IN", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: true,
+  });
+}
 
 function clock() {
   const end = getTodayEndTime();
   const now = new Date();
+
+  // 🔥 Update UI date
+  document.getElementById("end-date").innerText = formatDate(end);
 
   const diff = (end - now) / 1000;
 
