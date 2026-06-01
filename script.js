@@ -7,7 +7,7 @@ function getTodayEndTime() {
     now.getFullYear(),
     now.getMonth(),
     now.getDate(),
-    18, // 10 PM
+    17, // 10 PM
     0,
     0,
   );
